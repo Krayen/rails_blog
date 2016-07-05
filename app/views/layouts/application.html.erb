@@ -13,6 +13,8 @@
     <p class="alert"><%= alert %></p>
     <% if signed_in? %>
       <%= link_to "Logga ut", destroy_user_session_path, method: :delete %>
+      <p>Inloggad som: <%= link_to current_user.email, current_user %></p>
+
     <% else %>
       <%= link_to "Logga in", new_user_session_path %>
     <% end %>
