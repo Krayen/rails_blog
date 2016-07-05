@@ -1,5 +1,7 @@
-<h1>Posts</h1>
+<h1>Learning Rails #1 - Blog</h1>
+<div class="form-wrapper">
 <%= render "posts/form" %>
+</div>
 <% @posts.each do |post| %>
   <div class="post-wrapper">
     <h2>
@@ -13,4 +15,5 @@
       <%= post.created_at %>
     </p>
   </div>
+
 <% end %>

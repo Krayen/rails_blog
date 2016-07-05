@@ -6,7 +6,15 @@ body {
   font-size: 62.5%;
 }
 
+.form-wrapper {
+  width: 30em;
+  border: 1px dotted blue;
+}
+
 .post-wrapper {
   border: solid 1px #000;
-  width: 300em;
+  width: 30em;
+  p {
+    padding: 0.5em;
+  }
 }
