@@ -5,8 +5,17 @@
 <%= @post.body %>
 </p>
 
-<% if signed_in? %>
+<% if current_user.admin? %>
   <p>
   <%= link_to "Delete post",  post_path(@post), method: :delete %>
   </p>
 <% end %>
+
+<section class="post-comments">
+  <h2><%= @post.comments.count %> Comments</h2>
+
+</section>
+<%= render @post.comments.order(created_at: :desc) %>
+<h3>Add a comment</h3>
+<%= render 'comments/form' %>
+
