@@ -9,11 +9,17 @@ body {
 .form-wrapper {
   width: 30em;
   border: 1px dotted blue;
+  margin-bottom: 2em;
+  padding: 1em;
+  border-radius: 1em;
 }
 
 .post-wrapper {
-  border: solid 1px #000;
+  border-radius: 1em;
   width: 30em;
+  margin-bottom: 1em;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+  padding: 1em;
   p {
     padding: 0.5em;
   }

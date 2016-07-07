@@ -1,19 +1,35 @@
 <h1>Learning Rails #1 - Blog</h1>
 <div class="form-wrapper">
-<%= render "posts/form" %>
+  <% if signed_in? %>
+    <%= render "posts/form" %>
+  <% end %>
 </div>
 <% @posts.each do |post| %>
-  <div class="post-wrapper">
-    <h2>
-      <%= "##{post.id}" %>
-      <%= post.title %>
-    </h2>
-    <p>
+  
+    <div class="post-wrapper">
+      <h2>
+        <%= link_to post do %>
+        <%= "##{post.id}" %>
+        <%= post.title %>
+      <% end %>
+      </h2>
+      <p>
       <%= post.body %>
-    </p>
-    <p>
-      <%= post.created_at %>
-    </p>
-  </div>
+      </p>
+      <p>
+      Created at: 
+      <%= post.created_at.strftime("%d %b %Y - %H:%M") %>
+      <br>
+      Updated at: 
+      <%= post.updated_at.strftime("%d %b %Y - %H:%M") %>
+      </p>
+      <% if signed_in? %>
+      <p>
+      <%= link_to "Delete post",  post_path(post), method: :delete %>
+      <%= link_to "Edit post", edit_post_path(post) %>
+      </p>
+    <% end %>
+    </div>
+  
 
 <% end %>
