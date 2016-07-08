@@ -1,6 +1,6 @@
 <h1>Learning Rails #1 - Blog</h1>
 <div class="form-wrapper">
-  <% if signed_in? %>
+  <% if current_user.admin? %>
     <%= render "posts/form" %>
   <% end %>
 </div>
@@ -23,7 +23,7 @@
       Updated at: 
       <%= post.updated_at.strftime("%d %b %Y - %H:%M") %>
       </p>
-      <% if signed_in? %>
+      <% if current_user.admin? %>
       <p>
       <%= link_to "Delete post",  post_path(post), method: :delete %>
       <%= link_to "Edit post", edit_post_path(post) %>
